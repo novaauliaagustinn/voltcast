@@ -66,6 +66,7 @@ def set_background(image_path, header_image_path):
             font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
             color: #003366 !important;
         }}
+        
 
         /* === CARD PREDIKSI === */
         .prediction-card {{
@@ -139,14 +140,25 @@ def set_background(image_path, header_image_path):
 # ==========================
 # KONFIGURASI HALAMAN
 # ==========================
-st.set_page_config(page_title="Prediksi Forecasting", layout="centered")
+st.set_page_config(page_title="Volt Cast PLN", layout="centered")
 set_background("background.png", "HEADER.png")
+
+# === Hilangkan tombol Deploy dan titik tiga Streamlit tanpa ganggu header ===
+hide_menu_style = """
+    <style>
+    [data-testid="stToolbar"] {display: none !important;}   /* Hilangkan toolbar (Deploy & titik tiga) */
+    #MainMenu {visibility: hidden !important;}              /* Hilangkan menu utama Streamlit */
+    footer {visibility: hidden !important;}                 /* Sembunyikan footer Streamlit */
+    </style>
+"""
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 
 # === TAMBAHKAN BAGIAN INI ===
 st.markdown("""
     <div style='text-align: left; margin-top: 20px; margin-bottom: 25px;'>
         <h1 style='font-size: 40px; color: #003366; font-weight: 700; margin-bottom: 5px;'>
-            VoltCast : Energy Forecasting System
+            VOLT CAST: Energy Forecasting System
         </h1>
         <p style='font-size: 18px; color: #004d66;'>
             Prediksi dan analisis pergolongan KWH serta tarif listrik dengan teknologi AI berbasis 
